@@ -27,4 +27,6 @@ func main() {
                 log.Printf("Error creating OpenShift client: %s", err)
                 os.Exit(2)
         }
+        c := controller.NewController(openshiftClient, kubeClient)
+        c.Run()
 }

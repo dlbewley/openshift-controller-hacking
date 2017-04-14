@@ -66,3 +66,4 @@ git push
     - https://godoc.org/github.com/openshift/origin/pkg/project/api#Project
     - https://godoc.org/k8s.io/kubernetes/pkg/api#ObjectMeta
 
+- Add controller.Run in cmd.go
