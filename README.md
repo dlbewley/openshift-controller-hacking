@@ -66,34 +66,33 @@ git push
     - https://godoc.org/github.com/openshift/origin/pkg/project/api#Project
     - https://godoc.org/k8s.io/kubernetes/pkg/api#ObjectMeta
 
-- Add controller.Run in cmd.go
-
+- Add controller.Run call in [cmd.go](controller/cmd/controller/cmd.go) 
 - Run `make`
 
   **Errors:**
 
-  ```
-  go install github.com/dlbewley/openshift-controller-hacking/controller/cmd/controller
+```
+go install github.com/dlbewley/openshift-controller-hacking/controller/cmd/controller
 # github.com/dlbewley/openshift-controller-hacking/controller/cmd/controller
-  controller/cmd/controller/cmd.go:4: imported and not used: "fmt"
-  controller/cmd/controller/cmd.go:30: cannot use openshiftClient (type client.Interface) as type *client.Client in argument to controller.NewController: need type assertion
-  controller/cmd/controller/cmd.go:31: not enough arguments in call to c.Run
-          have ()
-            want (<-chan struct {})
-    make: *** [all] Error 2
-   ```
+controller/cmd/controller/cmd.go:4: imported and not used: "fmt"
+controller/cmd/controller/cmd.go:30: cannot use openshiftClient (type client.Interface) as type *client.Client in argument to controller.NewController: need type assertion
+controller/cmd/controller/cmd.go:31: not enough arguments in call to c.Run
+      have ()
+        want (<-chan struct {})
+make: *** [all] Error 2
+```
 
-   Presumably because I don't have openshift running on the mac?
-   I do have a working client config.
+Presumably because I don't have openshift running on the mac?
+I do have a working client config.
 
-   ```
-   $ oc version
-   oc v3.4.1.5
-   kubernetes v1.4.0+776c994
-   features: Basic-Auth
+```
+$ oc version
+oc v3.4.1.5
+kubernetes v1.4.0+776c994
+features: Basic-Auth
 
-   Server https://openshift.example.com:8443
-   openshift v3.4.1.10
-   kubernetes v1.4.0+776c994
-   ```
+Server https://openshift.example.com:8443
+openshift v3.4.1.10
+kubernetes v1.4.0+776c994
+```
 
